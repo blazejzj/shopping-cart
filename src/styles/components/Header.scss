@@ -1,0 +1,48 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0rem 4rem;
+    position: sticky;
+
+    .header-nav-list {
+        display: flex;
+        gap: 3rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        li {
+            list-style: none;
+        }
+        button {
+            background: none;
+            outline: none;
+            border: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    }
+
+    button {
+        background: none;
+        outline: none;
+        border: none;
+        font-size: 1.5rem;
+    }
+}
+
+.default-link-element {
+    text-decoration: none;
+    color: black;
+}
+
+.logo {
+    font-size: 2.5rem;
+    .logo-single-letter {
+        font-size: 3rem;
+        color: #2e968e;
+    }
+}
+
+.currentPage {
+    border-bottom: 3px solid #2e968e;
+}

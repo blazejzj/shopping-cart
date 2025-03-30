@@ -1,6 +1,14 @@
+@import "./components/Header.scss";
+@import "./components/Footer.scss";
+@import "./components/App.scss";
+@import "./components/HomePage.scss";
+@import "./components/ShopPage.scss";
+@import "./components/ErrorPage.scss";
+
 html,
 body,
-#root {
+#root,
+.app {
     width: 100%;
     height: 100%;
 }
@@ -11,4 +19,11 @@ body {
     -webkit-text-size-adjust: 100%;
     letter-spacing: 0.15px;
     scroll-behavior: smooth;
+}
+
+button:hover,
+li:hover,
+a:hover {
+    color: #2e968e;
+    cursor: pointer;
 }
