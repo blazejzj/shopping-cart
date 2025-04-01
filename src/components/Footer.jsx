@@ -28,7 +28,7 @@ export default function Footer() {
                     <li>Clothes</li>
                 </ul>
                 <ul>
-                    <p>Company</p>
+                    <p>Billing Information</p>
                     <li>FAQ</li>
                     <li>Order Status</li>
                     <li>Returns</li>

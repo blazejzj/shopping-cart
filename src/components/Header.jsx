@@ -48,7 +48,7 @@ export default function Header() {
                                 }`
                             }
                         >
-                            Shop
+                            Our Shop
                         </NavLink>
                     </li>
                     <li>
@@ -59,6 +59,7 @@ export default function Header() {
             <button
                 onClick={handleShoppingCartClick}
                 style={{ position: "relative" }}
+                aria-label="shopping-cart-button"
             >
                 <FontAwesomeIcon icon={faShoppingCart} />
                 {itemCount > 0 && (
@@ -71,7 +72,11 @@ export default function Header() {
                     onClick={() => setVisible(false)}
                 ></div>
             )}
-            <div className={`cart-panel ${visible ? "visible" : ""}`}>
+            <div
+                role="region"
+                aria-label="cartOverlay"
+                className={`cart-panel ${visible ? "visible" : ""}`}
+            >
                 <button
                     className="cart-close"
                     onClick={() => setVisible(false)}
