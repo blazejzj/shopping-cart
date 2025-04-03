@@ -147,6 +147,7 @@ export default function ShopPage() {
                                     onClick={() =>
                                         handleIncrementProduct(product.id)
                                     }
+                                    aria-label="increment-product-counter"
                                 >
                                     <FontAwesomeIcon icon={faPlus} />
                                 </button>
@@ -155,6 +156,7 @@ export default function ShopPage() {
                                     onClick={() =>
                                         handleDecrementProduct(product.id)
                                     }
+                                    aria-label="decrement-product-counter"
                                 >
                                     <FontAwesomeIcon icon={faMinus} />
                                 </button>

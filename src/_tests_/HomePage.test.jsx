@@ -7,14 +7,37 @@ import HomePage from "../components/HomePage";
 
 describe("HomePage component", () => {
     it("welcoming page exists and displays", () => {
-        <MemoryRouter>
-            <Header />
-            <HomePage />
-        </MemoryRouter>;
+        render(
+            <MemoryRouter>
+                <Header />
+                <HomePage />
+            </MemoryRouter>
+        );
 
         const header = screen.getByRole("heading", {
             name: /Welcome To Shop.*U/i,
         });
         expect(header).toBeInTheDocument();
+    });
+
+    it("image displays with correct width and height", () => {
+        render(
+            <MemoryRouter>
+                <Header />
+                <HomePage />
+            </MemoryRouter>
+        );
+
+        const image = screen.getByRole("img");
+        expect(image).toBeInTheDocument();
+
+        expect(image).toHaveAttribute(
+            "src",
+            expect.stringContaining("mainPage.svg")
+        );
+
+        // width and height
+        expect(image).toHaveAttribute("width", "400");
+        expect(image).toHaveAttribute("height", "400");
     });
 });

@@ -156,4 +156,43 @@ describe("Header component", () => {
         expect(await screen.findByText(/Test Product/i)).toBeInTheDocument();
         expect(screen.getByText(/Quantity: 2/i)).toBeInTheDocument();
     });
+
+    it("renders products with correct layout in shopping cart", async () => {
+        const product = {
+            id: 1,
+            title: "Test Product",
+            quantity: 2,
+            image: "dummy.jpg",
+            price: 10,
+        };
+
+        const { container } = render(
+            <MemoryRouter>
+                <MockShoppingCartProvider initialCart={[product]}>
+                    <Header />
+                </MockShoppingCartProvider>
+            </MemoryRouter>
+        );
+
+        const shoppingCartButton = screen.getByRole("button", {
+            name: /shopping-cart-button/i,
+        });
+        await userEvent.click(shoppingCartButton);
+
+        const cartItems = container.querySelectorAll(".cart-item");
+        expect(cartItems).toHaveLength(1);
+        const cartItem = cartItems[0];
+
+        const imageElement = cartItem.querySelector("img");
+        expect(imageElement).toBeInTheDocument();
+        expect(imageElement).toHaveAttribute("src", product.image);
+        expect(imageElement).toHaveAttribute("alt", product.title);
+
+        const detailsElement = cartItem.querySelector(".cart-item-details");
+        expect(detailsElement).toBeInTheDocument();
+        expect(detailsElement).toHaveTextContent(product.title);
+        expect(detailsElement).toHaveTextContent(
+            `Quantity: ${product.quantity}`
+        );
+    });
 });
